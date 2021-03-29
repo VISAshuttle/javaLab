@@ -1,0 +1,14 @@
+package sec04.exam01_class_new;
+
+// 실행 가능한 클래스 (main() 메소드 있음)
+public class StudentExample {
+
+	public static void main(String[] args) {
+		Student s1 = new Student();
+		System.out.println("s1 변수가 Student 객체를 참조");
+		
+		Student s2 = new Student();
+		System.out.println("s2 변수가 다른 Student 객체를 참조");
+	}
+
+}
