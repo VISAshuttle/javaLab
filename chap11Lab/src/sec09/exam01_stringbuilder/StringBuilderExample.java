@@ -11,6 +11,8 @@ public class StringBuilderExample {
 		
 		sb.insert(4, "2");
 		System.out.println(sb.toString());
+		
+		System.out.println();
 	}
 
 }
