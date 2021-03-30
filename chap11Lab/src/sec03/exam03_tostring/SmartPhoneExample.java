@@ -1,4 +1,4 @@
-package sec03.exam03_toString;
+package sec03.exam03_tostring;
 
 public class SmartPhoneExample {
 

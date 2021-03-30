@@ -1,4 +1,4 @@
-package sec05.system;
+package sec05.exam01_exit;
 
 public class ExitExample {
 
