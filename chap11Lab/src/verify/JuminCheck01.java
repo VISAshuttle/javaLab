@@ -20,11 +20,9 @@ public class JuminCheck01 {
 			if (i != intArr.length - 1) {
 				sum += intArr[i] * verifyArr[i];
 			} else {
-				int check = intArr[i];
-				int rest = sum % 11;
-				int result = 11 - rest;
+				int result = 11 - (sum % 11);
 				if (result >= 10)	result %= 10;
-				isValid = (check == result);
+				isValid = (intArr[i] == result);
 			}
 		}
 
