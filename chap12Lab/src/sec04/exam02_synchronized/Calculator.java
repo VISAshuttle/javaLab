@@ -7,6 +7,7 @@ public class Calculator {
 		return memory;
 	}
 
+	// synchronized 키워드 추가
 	public synchronized void setMemory(int memory) {
 		this.memory = memory;
 		try {
