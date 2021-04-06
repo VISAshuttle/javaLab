@@ -12,7 +12,7 @@ public class Member {
 		this.id = id; 
 	}
 	public Member(String name, String id) {
-		System.out.println("Member(String name, String id)");
+		System.out.println("Member(String name, String id) ½ÇÇà");
 		this.name = name;
 		this.id = id;
 	}

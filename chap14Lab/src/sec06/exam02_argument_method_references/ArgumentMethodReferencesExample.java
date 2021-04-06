@@ -6,11 +6,13 @@ public class ArgumentMethodReferencesExample {
 	public static void main(String[] args) {
 		ToIntBiFunction<String,String> function;
 		
+		// 람다식
 		function = (a, b) -> a.compareToIgnoreCase(b);
 		print(function.applyAsInt("Java8", "JAVA8"));
 		
+		// 매개변수의 메소드 참조
 		function = String :: compareToIgnoreCase;
-		print(function.applyAsInt("Java8", "JAVA8"));
+		print(function.applyAsInt("Java8", "JAVA9"));
 	}
 	
 	public static void print(int order) {
