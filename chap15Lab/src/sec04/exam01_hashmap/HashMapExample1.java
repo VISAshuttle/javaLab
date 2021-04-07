@@ -7,48 +7,47 @@ import java.util.Set;
 
 public class HashMapExample1 {
 	public static void main(String[] args) {
-		//Map 拿泛记 积己
+		// Map 拿泛记 积己
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		
-		//按眉 历厘
+
+		// 按眉 历厘
 		map.put("脚侩鼻", 85);
 		map.put("全辨悼", 90);
 		map.put("悼厘焙", 80);
 		map.put("全辨悼", 95);
 		System.out.println("醚 Entry 荐: " + map.size());
-		
-		//按眉 茫扁		
+
+		// 按眉 茫扁
 		System.out.println("\t全辨悼 : " + map.get("全辨悼"));
 		System.out.println();
-		
-		//按眉甫 窍唱究 贸府
+
+		// 按眉甫 窍唱究 贸府
 		Set<String> keySet = map.keySet();
 		Iterator<String> keyIterator = keySet.iterator();
-		while(keyIterator.hasNext()) {
-		  String key = keyIterator.next();
-		  Integer value = map.get(key);
-		  System.out.println("\t" + key + " : " + value);
-		}		
-		System.out.println();	
-		
-		//按眉 昏力
-		map.remove("全辨悼");
-		System.out.println("醚 Entry 荐: " + map.size());
-		
-		//按眉甫 窍唱究 贸府
-		Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
-		Iterator<Map.Entry<String, Integer>> entryIterator = entrySet.iterator();
-		while(entryIterator.hasNext()) {
-		  Map.Entry<String, Integer> entry = entryIterator.next();
-		  String key = entry.getKey();
-		  Integer value = entry.getValue();
-		  System.out.println("\t" + key + " : " + value);
+		while (keyIterator.hasNext()) {
+			String key = keyIterator.next();
+			Integer value = map.get(key);
+			System.out.println("\t" + key + " : " + value);
 		}
 		System.out.println();
 		
-		//按眉 傈眉 昏力
+		// 按眉 昏力
+		map.remove("全辨悼");
+		System.out.println("醚 Entry 荐: " + map.size());
+
+		// 按眉甫 窍唱究 贸府
+		Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
+		Iterator<Map.Entry<String, Integer>> entryIterator = entrySet.iterator();
+		while (entryIterator.hasNext()) {
+			Map.Entry<String, Integer> entry = entryIterator.next();
+			String key = entry.getKey();
+			Integer value = entry.getValue();
+			System.out.println("\t" + key + " : " + value);
+		}
+		System.out.println();
+
+		// 按眉 傈眉 昏力
 		map.clear();
 		System.out.println("醚 Entry 荐: " + map.size());
 	}
 }
-

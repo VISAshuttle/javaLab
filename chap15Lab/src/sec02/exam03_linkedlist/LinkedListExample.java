@@ -13,17 +13,22 @@ public class LinkedListExample {
 		long endTime;
 
 		startTime = System.nanoTime();
-		for (int i = 0; i < 10000; i++) {
+		for (int i = 0; i < 100000; i++) {
 			list1.add(0, String.valueOf(i));
 		}
 		endTime = System.nanoTime();
-		System.out.println("ArrayList 걸린시간: " + (endTime - startTime) + " ns");
+		long arrayListElapsedTime = endTime - startTime;
+		System.out.println("ArrayList 걸린시간: " + arrayListElapsedTime + " ns");
 
 		startTime = System.nanoTime();
-		for (int i = 0; i < 10000; i++) {
+		for (int i = 0; i < 100000; i++) {
 			list2.add(0, String.valueOf(i));
 		}
 		endTime = System.nanoTime();
-		System.out.println("LinkedList 걸린시간: " + (endTime - startTime) + " ns");
+		long linkedListElapsedTime = endTime - startTime;
+		System.out.println("LinkedList 걸린시간: " + linkedListElapsedTime + " ns");
+
+		int howFast = (int) (arrayListElapsedTime / linkedListElapsedTime);
+		System.out.println("연결리스트가 배열리스트보다 " + howFast + "배 더 빠름");
 	}
 }
