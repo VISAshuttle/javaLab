@@ -12,11 +12,11 @@ public class StreamPipelinesExample {
 				new Member("박수미", Member.FEMALE, 27)
 		);
 		
-		double ageAvg =   list.stream()
-			.filter(m -> m.getSex()==Member.MALE)
-			.mapToInt(Member :: getAge)
-			.average()
-			.getAsDouble();
+		double ageAvg =   list.stream()				// 스트림을 생성하여
+			.filter(m -> m.getSex()==Member.MALE)	// 필터를 적용하고
+			.mapToInt(Member :: getAge)				// getAge() 반환값으로
+			.average()								// 평균을 구하고
+			.getAsDouble();							// double형으로 변환
 		
 		System.out.println("남자 평균 나이: " + ageAvg);
 	}
