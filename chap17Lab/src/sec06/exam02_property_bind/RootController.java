@@ -14,6 +14,7 @@ public class RootController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// textArea1의 text와 textArea2의 텍스트를 서로 연동
 		Bindings.bindBidirectional(textArea1.textProperty(), textArea2.textProperty());
 	}
 }
