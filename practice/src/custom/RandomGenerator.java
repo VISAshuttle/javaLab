@@ -14,6 +14,8 @@ import java.util.stream.IntStream;
 public class RandomGenerator {
 	
 	public void printIntegerCollection(Collection<Integer> c) {
+		if (c == null)	return;
+		
 		Iterator<Integer> iter = c.iterator();
 		int i = 0;
 		while (iter.hasNext()) {
@@ -25,23 +27,33 @@ public class RandomGenerator {
 		System.out.println();
 	}
 
-	public List<Integer> getRandomIntegerList(int RAND_MAX) {
-		List<Integer> list = Arrays.stream(
-									IntStream.range(1, RAND_MAX + 1).toArray()
-									).boxed().collect(Collectors.toList());
-		Random rand = new Random();
-		for (int i1 = 0; i1 < list.size(); i1++) {
-			int i2 = rand.nextInt(RAND_MAX);
-			Collections.swap(list, i1, i2);
-		}
-		return list;
+	public List<Integer> getRandomIntegerList(int range) {
+		int size = range;
+		return getRandomIntegerList(range, size);
 	}
 	
-	public Set<Integer> getRandomIntegerSet(int RAND_MAX) {
+	public List<Integer> getRandomIntegerList(int range, int size) {
+		List<Integer> list = Arrays.stream(
+									IntStream.range(1, range + 1).toArray()
+									).boxed().collect(Collectors.toList());
+		Random rand = new Random();
+		for (int i = 0; i < size; i++) {
+			int j = rand.nextInt(range);
+			Collections.swap(list, i, j);
+		}
+		return list.subList(0, size);
+	}
+	
+	public Set<Integer> getRandomIntegerSet(int range) {
+		int size = range;
+		return getRandomIntegerSet(range, size);
+	}
+	
+	public Set<Integer> getRandomIntegerSet(int range, int size) {
 		Set<Integer> set = new HashSet<Integer>();
 		Random rand = new Random();
-		while (set.size() != RAND_MAX)
-			set.add(rand.nextInt(RAND_MAX) + 1);
+		while (set.size() != size)
+			set.add(rand.nextInt(range) + 1);
 		return set;
 	}
 
