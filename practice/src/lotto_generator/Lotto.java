@@ -1,6 +1,8 @@
 package lotto_generator;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Lotto {
 
@@ -15,24 +17,11 @@ public class Lotto {
 	}
 	
 	private static int[] getLine() {
-		int[] line = new int[QTY_PER_LINE];
+		Set<Integer> hashSet = new HashSet<Integer>();
+		while (hashSet.size() != QTY_PER_LINE)
+			hashSet.add(getNumber());
 		
-		boolean isDuplicate;
-		for (int i1 = 0; i1 < line.length; i1++) {
-			do {
-				isDuplicate = false;
-				int number = getNumber();
-				for (int i2 = 0; i2 < i1; i2++) {
-					if (number == line[i2]) {
-						isDuplicate = true;
-						break;
-					}
-				}
-				if (!isDuplicate)	line[i1] = number;
-			} while (isDuplicate);
-		}
-		
-//		sortLine(line);
+		int[] line = hashSet.stream().mapToInt(Number::intValue).toArray();
 		Arrays.sort(line);
 		return line;
 	}
@@ -46,20 +35,20 @@ public class Lotto {
 		
 		return bunch;
 	}
-
-	// 원래는 sort 기능을 직접 구현하였으나, 표준 라이브러리로 대체하였음
-//	private static void sortLine(int[] line) {
-//		if (line == null)	return;
-//		
-//		for (int fixed = line.length; (fixed-1) > 0; fixed--) {
-//			for (int i = 0; (i+1) < fixed; i++) {
-//				if (line[i] > line[i+1]) {
-//					int temp = line[i];
-//					line[i] = line[i+1];
-//					line[i+1] = temp;
-//				}
-//			}
-//		}
-//	}
 	
+	public static void printLotto(int[][] bunch) {
+		if (bunch == null)	return;
+		
+		System.out.println("=======================");
+		int lineNo = 0;
+		for (int[] line : bunch) {
+			for (int number : line) {
+				System.out.printf("%-2d  ", number);
+			}
+			System.out.println();
+			if (++lineNo % 5 == 0 && lineNo != bunch.length)
+				System.out.println("-----------------------");
+		}
+		System.out.println("=======================");
+	}
 }
